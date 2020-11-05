@@ -19,16 +19,16 @@ CLOSE_TAG 							{OPEN_ANGLE}{BACK_SLASH}{TAGS}{CLOSE_ANGLE}
 SINGLE_TAG 							{OPEN_ANGLE}{BACK_SLASH}{I_TAGS}{CLOSE_ANGLE}
 
 %%
-"="									{printf("Equals\n");}
+"="									{printf("Equals\n\n");}
 
-{SINGLE_TAG}						{printf("Single tag\n");}
-{OPEN_TAG}							{printf("HTML tag open\n");}
-{CLOSE_TAG}							{printf("HTML tag close\n");}
+{SINGLE_TAG}						{printf("single tag\n");}
+{OPEN_TAG}							{printf("html tag opening\n");}
+{CLOSE_TAG}							{printf("html tag closing\n");}
 
-[[:alnum:]]*						{printf("Anything as STRING\n");}
+[[:alnum:]]*						{printf("STRING\n");}
 
 [[:space:]\t\n]+            		{printf("Ignoring spaces\n");}
-.                       			{printf("Not HTML, I guess\n");exit(1);}
+.                       			{printf("invalid\n");exit(1);}
 
 
 %%
